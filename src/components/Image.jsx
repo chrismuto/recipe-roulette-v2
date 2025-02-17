@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import recipe from '../App.jsx'
 
 export default function Image(props) {
 
@@ -15,17 +14,19 @@ export default function Image(props) {
 
     function Video() {
         return (
-            <iframe title="youtube video" src={youTubeUrl}></iframe>
+            <iframe title="youtube video" src={youTubeUrl} className="video"></iframe>
         )
     }
 
     function Image() {
-        return <img src={props.thumbNail} alt="recipe image"></img>
+        return (
+            <img src={props.thumbNail} alt="recipe image" className="recipe-image"></img>
+        )
     }
 
     return (
         <div>
-            {props.youTubeUrl ? <Video /> : <Image />}
+            {youTubeUrl ? <Video /> : props.thumbNail ? <Image /> : null}
         </div>
     )
 }

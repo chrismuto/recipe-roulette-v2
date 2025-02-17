@@ -1,6 +1,6 @@
 export default function Recipe(props) {
 
     return (
-        <div>{props.recipe}</div>
+        <div className="recipe">{props.recipe}</div>
     )
 }
