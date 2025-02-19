@@ -7,7 +7,7 @@ export default function Ingredients(props) {
         .map(key => props.recipe[key]);
         
     const measurements = Object.keys(props.recipe)
-        .filter(key => key.includes("strMeasure") && props.recipe[key] !== "")
+        .filter(key => key.includes("strMeasure") && (props.recipe[key] !== ""))
         .map(key => props.recipe[key]);
 
     const matchedItems = ingredients.map((ingredient, index) => ({

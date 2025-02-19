@@ -1,16 +1,21 @@
 import SavedRecipe from "./fragments/SavedRecipe"
 
-export default function SavedRecipes() {
+export default function SavedRecipes(props) {
+
+    const addRecipe = () => {
+        props.saveRecipe()
+    }
+
+    const recipeButtons = props.recipes.map((recipe) => {
+        return <SavedRecipe name = {recipe.name} mealId = {recipe.idMeal} setRecipe = {props.setRecipe}/>
+    })
 
     return (
         <div className="saved-recipe-container"> 
+            <button onClick={addRecipe}>Save this Recipe</button>
             <h3>Saved Recipes</h3>
             <ul className="recipe-list">
-                <SavedRecipe name="This is a very long name that should overflow" />
-                <SavedRecipe name="name" />
-                <SavedRecipe name="name" />
-                <SavedRecipe name="name" />
-                <SavedRecipe name="name" />
+                {recipeButtons}
             </ul>
         </div>
     )

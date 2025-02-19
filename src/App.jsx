@@ -1,5 +1,5 @@
 import './App.css'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Title from './components/Title';
 import Image from './components/Image';
 import Recipe from './components/Recipe';
@@ -9,14 +9,35 @@ import SavedRecipeContainer from './components/SavedRecipeContainer';
 function App() {
 
   const [recipe, setRecipe] = useState("")
+  const [recipes, setRecipes] = useState(() => {
+    const storageRecipes = localStorage.getItem("recipes");
+    return storageRecipes ? JSON.parse(storageRecipes) : [];
+  })
   
-function fetchRecipe() {
-  fetch("https://www.themealdb.com/api/json/v1/1/random.php")
-    .then(res => res.json())
-    .then(data => setRecipe(data.meals[0]))
+  useEffect(() => {
+    const retrievedRecipes = localStorage.getItem("recipes")
+    console.log(retrievedRecipes)
+  }, [recipes])
+
+  async function fetchRecipe() {
+    try {
+      const response = await fetch("https://www.themealdb.com/api/json/v1/1/random.php");
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`)
+      }
+      let json = await response.json();
+      setRecipe(json.meals[0])
+    } catch (e) {
+      console.error(e)
+    }
     console.log(recipe)
-}
-  
+  }
+
+  function saveRecipe() {
+    const newRecipe = {"name": recipe.strMeal, "idMeal": recipe.idMeal}
+    localStorage.setItem("recipes", JSON.stringify([...recipes, newRecipe]));
+    setRecipes(prevRecipes => [...prevRecipes, newRecipe])
+  }
 
   return (
     <>
@@ -25,13 +46,11 @@ function fetchRecipe() {
         Click here to generate a new recipe!
       </button>
       <Title title = {recipe.strMeal} nationality={recipe.strArea} category = {recipe.strCategory}/>
-      <hr className="horizontal-break" />
       <Image youTubeUrl = {recipe.strYoutube} thumbNail = {recipe.strMealThumb} />
-      <hr className="horizontal-break" />
       <Recipe recipe = {recipe.strInstructions} />
       <Ingredients recipe = {recipe} />
       <hr className="horizontal-break" />
-      <SavedRecipeContainer />
+      <SavedRecipeContainer recipe = {recipe} recipes = {recipes} saveRecipe = {saveRecipe} setRecipe={setRecipe} />
     </>
   )
 }
