@@ -33,10 +33,19 @@ function App() {
     console.log(recipe)
   }
 
+  function checkForDuplicates(recipes, id) {
+    return recipes.some(obj => obj.idMeal === id);
+  }
+
   function saveRecipe() {
     const newRecipe = {"name": recipe.strMeal, "idMeal": recipe.idMeal}
-    localStorage.setItem("recipes", JSON.stringify([...recipes, newRecipe]));
-    setRecipes(prevRecipes => [...prevRecipes, newRecipe])
+    const recipeDoesExist = checkForDuplicates(recipes, newRecipe.idMeal)
+    if (recipeDoesExist) {
+      alert("This recipe is already saved")
+    } else {
+      localStorage.setItem("recipes", JSON.stringify([...recipes, newRecipe]));
+      setRecipes(prevRecipes => [...prevRecipes, newRecipe])
+    }
   }
 
   return (
