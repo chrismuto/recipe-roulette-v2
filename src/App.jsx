@@ -52,7 +52,7 @@ function App() {
     <>
       <h1>Recipe Roulette</h1>
       <button className="recipe-button" onClick={fetchRecipe}>
-        Click here to generate a new recipe!
+        generate a new recipe!
       </button>
       <Title title = {recipe.strMeal} nationality={recipe.strArea} category = {recipe.strCategory}/>
       <Image youTubeUrl = {recipe.strYoutube} thumbNail = {recipe.strMealThumb} />

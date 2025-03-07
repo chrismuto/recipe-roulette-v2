@@ -12,7 +12,7 @@ export default function SavedRecipes(props) {
 
     return (
         <div className="saved-recipe-container"> 
-            <button onClick={addRecipe}>Save this Recipe</button>
+            <button onClick={addRecipe} class="save-recipe-button">Save this Recipe</button>
             <h3>Saved Recipes</h3>
             <ul className="recipe-list">
                 {recipeButtons}
