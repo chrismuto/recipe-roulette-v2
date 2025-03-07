@@ -6,8 +6,12 @@ export default function SavedRecipes(props) {
         props.saveRecipe()
     }
 
+    const deleteRecipe = (id) => {
+        props.deleteRecipe(id)
+    }
+
     const recipeButtons = props.recipes.map((recipe) => {
-        return <SavedRecipe name = {recipe.name} mealId = {recipe.idMeal} setRecipe = {props.setRecipe}/>
+        return <SavedRecipe name = {recipe.name} mealId = {recipe.idMeal} setRecipe = {props.setRecipe} deleteRecipe = {deleteRecipe}/>
     })
 
     return (

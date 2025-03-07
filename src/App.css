@@ -58,8 +58,13 @@ button {
 }
 
 .saved-recipe-button {
-  width: 250px;
+  width: 200px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+.delete-recipe-button {
+  background-color: #f40f0f;
+  margin-left: 20px;
 }

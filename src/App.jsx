@@ -48,6 +48,13 @@ function App() {
     }
   }
 
+  function deleteRecipe(id) {
+    console.log(id)
+    const newRecipeArray = recipes.filter(recipe => recipe.idMeal !== id)
+    localStorage.setItem("recipes", JSON.stringify(newRecipeArray));
+    setRecipes(newRecipeArray)
+  }
+
   return (
     <>
       <h1>Recipe Roulette</h1>
@@ -59,7 +66,7 @@ function App() {
       <Recipe recipe = {recipe.strInstructions} />
       <Ingredients recipe = {recipe} />
       <hr className="horizontal-break" />
-      <SavedRecipeContainer recipe = {recipe} recipes = {recipes} saveRecipe = {saveRecipe} setRecipe={setRecipe} />
+      <SavedRecipeContainer recipe = {recipe} recipes = {recipes} saveRecipe = {saveRecipe} deleteRecipe = {deleteRecipe} setRecipe={setRecipe} setRecipes={setRecipes}/>
     </>
   )
 }

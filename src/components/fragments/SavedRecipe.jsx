@@ -13,8 +13,12 @@ export default function SavedRecipe(props) {
         }
     }
 
+    const deleteRecipe = (id) => {
+      props.deleteRecipe(props.mealId)
+    }
+
     return (
-        <li className="recipe-list-item"><button className="saved-recipe-button" onClick={getSavedRecipe}>{props.name}</button></li>
+        <li className="recipe-list-item"><button className="saved-recipe-button" onClick={getSavedRecipe}>{props.name}</button><button className="delete-recipe-button" onClick={deleteRecipe}>X</button></li>
     )
 
 }
