@@ -40,7 +40,7 @@ function App() {
   function saveRecipe() {
     const newRecipe = {"name": recipe.strMeal, "idMeal": recipe.idMeal}
     const recipeDoesExist = checkForDuplicates(recipes, newRecipe.idMeal)
-    if (recipeDoesExist) {
+    if (recipeDoesExist || !newRecipe.idMeal) {
       alert("This recipe is already saved")
     } else {
       localStorage.setItem("recipes", JSON.stringify([...recipes, newRecipe]));

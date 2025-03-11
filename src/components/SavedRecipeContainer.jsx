@@ -1,4 +1,5 @@
 import SavedRecipe from "./fragments/SavedRecipe"
+import SaveRecipeButton from "./fragments/SaveRecipeButton"
 
 export default function SavedRecipes(props) {
 
@@ -16,7 +17,7 @@ export default function SavedRecipes(props) {
 
     return (
         <div className="saved-recipe-container"> 
-            <button onClick={addRecipe} class="save-recipe-button">Save this Recipe</button>
+            <SaveRecipeButton addRecipe = {addRecipe} recipe = {props.recipe} />
             <h3>Saved Recipes</h3>
             <ul className="recipe-list">
                 {recipeButtons}

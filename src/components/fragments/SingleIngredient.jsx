@@ -7,7 +7,7 @@ export default function SingleIngredient(props) {
         const toggleStrikeThrough = () => {
             setIsStruckThrough(!isStruckThrough)
         }
-    return (
+    return (props.ingredient &&
         <li
             class="single-ingredient"
             style = {{textDecoration: isStruckThrough ? 'line-through' : 'none'}}
