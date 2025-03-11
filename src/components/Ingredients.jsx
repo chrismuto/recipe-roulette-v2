@@ -15,12 +15,13 @@ export default function Ingredients(props) {
         measurement: measurements[index]
     }));
 
-    return (
+    return (props.recipe &&
         <div className="ingredients">
             <h3>Ingredients</h3>
             {matchedItems.map((item, index) => (
                 <SingleIngredient key = {index} ingredient = {item.ingredient} measurement = {item.measurement} />
             ))}
+            <hr className="horizontal-break" />
         </div>
     );
 };

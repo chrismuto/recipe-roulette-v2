@@ -23,5 +23,4 @@ export default function SavedRecipes(props) {
             </ul>
         </div>
     )
-
 }

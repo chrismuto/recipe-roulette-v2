@@ -1,6 +1,6 @@
 export default function Recipe(props) {
 
-    return (
+    return (props.recipe &&
         <div className="recipe">
             <hr className="horizontal-break" />
             {props.recipe}

@@ -65,7 +65,6 @@ function App() {
       <Image youTubeUrl = {recipe.strYoutube} thumbNail = {recipe.strMealThumb} />
       <Recipe recipe = {recipe.strInstructions} />
       <Ingredients recipe = {recipe} />
-      <hr className="horizontal-break" />
       <SavedRecipeContainer recipe = {recipe} recipes = {recipes} saveRecipe = {saveRecipe} deleteRecipe = {deleteRecipe} setRecipe={setRecipe} setRecipes={setRecipes}/>
     </>
   )
