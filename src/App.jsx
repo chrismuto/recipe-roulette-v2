@@ -58,6 +58,8 @@ function App() {
   return (
     <>
       <h1>Recipe Roulette</h1>
+      <img src="../src/assets/images/empty-bowl-md.png" alt="empty bowl"></img>
+      <p>The random recipe generator</p>
       <button className="recipe-button" onClick={fetchRecipe}>
         generate a new recipe!
       </button>

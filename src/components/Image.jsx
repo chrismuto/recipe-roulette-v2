@@ -27,6 +27,7 @@ export default function Image(props) {
     return (
         <div>
             {youTubeUrl ? <Video /> : props.thumbNail ? <Image /> : null}
+            <hr className="horizontal-break" />
         </div>
     )
 }
