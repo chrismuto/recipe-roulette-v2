@@ -48,6 +48,11 @@ button {
   padding: 0px;
 }
 
+.recipe-step {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
 .ingredients {
   list-style: none;
 }
