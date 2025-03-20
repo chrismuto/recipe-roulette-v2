@@ -9,7 +9,7 @@ export default function Recipe(props) {
     }, [props.recipe])
 
     useEffect(() => {
-        if (splitRecipe) setFormattedRecipe(splitRecipe.map(step => {return <div className="recipe-step">{step}</div>}))
+        if (splitRecipe) setFormattedRecipe(splitRecipe.map((step, index) => {return <div className="recipe-step" key={index}>{step}</div>}))
     }, [splitRecipe])
 
     return (props.recipe &&

@@ -1,7 +1,7 @@
 export default function SavedRecipe(props) {
 
-  const titleElement = document.getElementById("title");
-
+  const getRecipeButton = document.getElementsByClassName("recipe-button");
+  
   async function getSavedRecipe() {
       try {
           const response = await fetch("https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + props.mealId);
@@ -20,7 +20,7 @@ export default function SavedRecipe(props) {
   }
 
   const scrollToImage = () => {
-    titleElement.scrollIntoView();
+    getRecipeButton[0].scrollIntoView();
   }
 
   const handleClick = () => {

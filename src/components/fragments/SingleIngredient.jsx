@@ -9,7 +9,7 @@ export default function SingleIngredient(props) {
         }
     return (props.ingredient &&
         <li
-            class="single-ingredient"
+            className="single-ingredient"
             style = {{textDecoration: isStruckThrough ? 'line-through' : 'none'}}
             data-toggle = {isStruckThrough ? true : false}
             onClick={toggleStrikeThrough}

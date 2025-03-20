@@ -6,7 +6,7 @@ export default function SaveRecipeButton(props) {
 
     return (props.recipe &&
         <div> 
-            <button onClick={addRecipe} class="save-recipe-button">Save this Recipe</button>
+            <button onClick={addRecipe} className="save-recipe-button">Save this Recipe</button>
         </div>
     )
 }

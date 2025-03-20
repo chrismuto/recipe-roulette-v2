@@ -49,7 +49,6 @@ function App() {
   }
 
   function deleteRecipe(id) {
-    console.log(id)
     const newRecipeArray = recipes.filter(recipe => recipe.idMeal !== id)
     localStorage.setItem("recipes", JSON.stringify(newRecipeArray));
     setRecipes(newRecipeArray)
